@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employer Login | Job Board</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Job Board</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="employers.php">Sign In</a>
+         </li>
+          <li class="nav-item">
+            <a class="nav-link" href="employers.php">For Employers</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<?php
+// Check if the form has been submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // Get the form data
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+
+  // Connect to the database
+  $conn = new mysqli('localhost', 'asmith404', 'U6adxN4fT1cMjCSy', 'asmith404');
+
+  // Check for errors
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+
+  // Check if the user exists
+  $sql = "SELECT * FROM users_employer WHERE email='$email'";
+  $result = $conn->query($sql);
+
+  if ($result->num_rows == 1) {
+    // User exists, verify password
+    $row = $result->fetch_assoc();
+    if (password_verify($password, $row['password'])) {
+      // Password is correct, redirect to the employer dashboard
+      header("Location: employerdashboard.php");
+      exit;
+    } else {
+      // Password is incorrect, show error message
+      echo '<p class="text-center text-danger">Incorrect password. Please try again.</p>';
+    }
+  } else {
+    // User does not exist, show error message
+    echo '<p class="text-center text-danger">User not found. Please register first.</p>';
+  }
+
+  // Close the database connection
+  $conn->close();
+}
+?>
+
+<!-- Employer Login Form -->
+<section class="login-register">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mx-auto">
+          <form action="employerlogin.php" method="post">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="text-center">
+            <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- footer -->     
+<footer class="bg-light py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <p>&copy; 2023 Job Board. All rights reserved.</p>
+      </div>
+      <div class="col-lg-6">
+        <ul class="list-inline mb-0 float-lg-end">
+
+          <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+          <li class="list-inline-item"><a href="#">Terms of Service</a></li>
+          <li class="list-inline-item"><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

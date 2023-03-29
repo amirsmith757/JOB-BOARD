@@ -1,0 +1,203 @@
+/* Global Styles */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Navbar */
+  
+  .navbar {
+    padding: 1rem;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .navbar-nav .nav-link {
+    margin-left: 1.5rem;
+    font-size: 1.2rem;
+  }
+  
+  /* Hero Section */
+  
+  .hero {
+    background-color: #f7f7f7;
+    padding: 4rem 0;
+  }
+  
+  .hero-heading {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-text {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-buttons .btn {
+    margin-right: 1rem;
+  }
+
+  
+  
+  /* Features Section */
+  
+  .features {
+    padding: 4rem 0;
+  }
+  
+  .section-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  .feature {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .feature i {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    color: #2b2d42;
+  }
+  
+  .feature-heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-text {
+    font-size: 1.2rem;
+    color: #6b7280;
+    line-height: 1.5;
+  }
+  
+  /* Job Listings Section */
+  
+  .job-listings {
+    padding: 4rem 0;
+  }
+  
+  .job-listing {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+  }
+  
+  .job-listing:hover {
+    background-color: #f7fafc;
+  }
+  
+  .job-listing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .job-listing-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .job-listing-date {
+    font-size: 1.2rem;
+    color: #6b7280;
+  }
+  
+  .job-listing-description {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  
+  .job-listing-apply-btn {
+    margin-top: 1rem;
+  }
+  
+  /* Forms */
+  
+  .form-group {
+    margin-bottom: 2rem;
+  }
+  
+  .form-label {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border-radius: 0.25rem;
+    border: 1px solid #e2e8f0;
+    background-color: #f7fafc;
+  }
+  
+  .form-text {
+    font-size: 1.2rem;
+    color: #6b7280;
+  }
+  
+  .form-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 0.25rem
+  }
+
+/* Footer styles */
+footer {
+  font-size: 14px;
+  color: #999;
+  border-top: 1px solid #eee;
+}
+
+footer a {
+  color: #999;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #666;
+}
+
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+footer ul li:last-child {
+  margin-right: 0;
+}
+
+/* Float to the right on large screens */
+@media (min-width: 992px) {
+  footer ul.float-lg-end {
+    float: right;
+  }
+}
+
